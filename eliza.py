@@ -3,6 +3,43 @@
 # Class: CMSC 437
 # Date: 1/29/2025
 
+"""
+OVERALL COMMENT:
+
+1) Problem Description:
+This program implements a simple chatbot named Eliza, designed to simulate a conversation with a psychotherapist. 
+The goal is to engage the user in a dialogue, spot keywords in their input, and respond in a way that mimics human-like interaction. 
+The program uses regular expressions to identify patterns in the user's input and transforms statements into questions to keep the conversation flowing.
+
+2) Example Input and Output:
+Input:
+-> [eliza] Hi, I'm a psychotherapist. What is your name?
+=> [user] My name is Peter.
+-> [eliza] Hi Peter. What troubles you?
+=> [Peter] My dog is freaking me out.
+-> [eliza] Why is your dog freaking you out, Peter?
+=> [Peter] My dog keeps barking at the corner of my room at night.
+-> [eliza] Why do you think your dog is barking, Peter?
+=> [Peter] I think my room is haunted.
+-> [eliza] What makes you believe your room is haunted, Peter?
+
+Usage Instructions:
+1. Run the program using the command: `python3 eliza.py`.
+2. Follow the prompts and type your responses.
+3. To exit the program, type "quit", "exit", or "bye".
+
+3) Algorithm:
+- Step 1: Greet the user and ask for their name.
+- Step 2: Extract the user's name using regular expressions.
+- Step 3: Ask the user what troubles them.
+- Step 4: Enter a loop to continuously read user input.
+  - Step 4.1: Check for exit conditions (e.g., "quit", "exit", "bye").
+  - Step 4.2: Use regular expressions to spot keywords in the user's input.
+  - Step 4.3: Respond with a related question or statement based on the spotted keyword.
+  - Step 4.4: If no keywords are found, use a default response to keep the conversation going.
+- Step 5: Exit the program when the user types an exit command.
+"""
+
 import re
 import random
 
