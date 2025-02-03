@@ -1,7 +1,8 @@
 # eliza.py
-# Author: Peter Nguyen 
+# Author: Peter Nguyen
 # Class: CMSC 437
 # Date: 1/29/2025
+
 import re
 import random
 
@@ -9,14 +10,14 @@ def eliza():
     print("-> [eliza] Hi, I'm a psychotherapist. What is your name?")
     name = input("=> [user] ").strip()
     
-    # Extract the name using regex (e.g., "My name is Bridget" -> "Bridget")
+    # Extract the name using regex (e.g., "My name is Peter" -> "Peter")
     name_match = re.search(r"(?:my name is|i am|im|i'm) (\w+)", name, re.IGNORECASE)
     if name_match:
         name = name_match.group(1)
     else:
         name = "friend"  # Default if no name is provided
     
-    print(f"-> [eliza] Hi {name}. How can I help you today?")
+    print(f"-> [eliza] Hi {name}. What troubles you?")
     
     while True:
         user_input = input(f"=> [{name}] ").strip().lower()
@@ -93,6 +94,31 @@ def eliza():
                 f"Why do you feel happy, {name}?",
                 f"What do you think is causing this happiness?",
                 f"How can you hold onto this feeling, {name}?"
+            ]
+            print(f"-> [eliza] {random.choice(responses)}")
+        
+        # New rules for dog, barking, and haunted
+        elif re.search(r"\bdog\b", user_input):
+            responses = [
+                f"Why is your dog freaking you out, {name}?",
+                f"What do you think is bothering your dog?",
+                f"How does your dog's behavior affect you, {name}?"
+            ]
+            print(f"-> [eliza] {random.choice(responses)}")
+        
+        elif re.search(r"\bbarking\b", user_input):
+            responses = [
+                f"Why do you think your dog is barking, {name}?",
+                f"What do you think your dog is trying to tell you?",
+                f"How do you feel when your dog barks at night, {name}?"
+            ]
+            print(f"-> [eliza] {random.choice(responses)}")
+        
+        elif re.search(r"\bhaunted\b", user_input):
+            responses = [
+                f"Why do you think your room is haunted, {name}?",
+                f"What makes you believe your room is haunted?",
+                f"How does the idea of a haunted room make you feel, {name}?"
             ]
             print(f"-> [eliza] {random.choice(responses)}")
         
